@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -38,14 +38,22 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
+        <div class="container">
+            <header>
+               <h1>Michael Mena - mmena2017@fau.edu - Z23446115</h1>
+            </header>
+            <section id="fetch">
+               <input type="text" placeholder="Enter a location" id="location" />
+               <button id="search">Find me the weather</button>
+            </section>
+            <footer>
+               <p>Created  by <a href="https://github.com/LeoTheLegion">Michael Mena</a></p>
+            </footer>
+         </div>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
+
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+        <script src="js/weather.js"></script>
     </body>
 </html>
