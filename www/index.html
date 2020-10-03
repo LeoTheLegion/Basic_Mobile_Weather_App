@@ -29,11 +29,13 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+        <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
+        <link href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+         rel = "stylesheet">
         <link rel="stylesheet" href="css/index.css">
         <title>Hello World</title>
     </head>
@@ -43,9 +45,19 @@
                <h1>Michael Mena - mmena2017@fau.edu - Z23446115</h1>
             </header>
             <section id="fetch">
-               <input type="text" placeholder="Enter a location" id="location" />
-               <button id="search">Find me the weather</button>
+                <div class = "ui-widget">
+                    <p>Type "a" or "s"</p>
+                    <label for = "location">Tags: </label>
+                    <input id = "location">
+
+                    <button id="search">Find me the weather</button>
+                 </div>
+               
+               
             </section>
+            <div id = "result">
+                
+            </div>
             <footer>
                <p>Created  by <a href="https://github.com/LeoTheLegion">Michael Mena</a></p>
             </footer>
@@ -53,7 +65,10 @@
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
 
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script src="js/weather.js"></script>
+        <script src="js/worldcities.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
