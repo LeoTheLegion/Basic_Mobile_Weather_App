@@ -1,4 +1,4 @@
-var APIKEY = "43678b9f208401e795aa9d998e91749e";
+var APIKEY = "";
 var GETROOT = 'https://api.openweathermap.org/data/2.5/weather';
 
 var getWeatherFromAPICall = function(query,callback){
