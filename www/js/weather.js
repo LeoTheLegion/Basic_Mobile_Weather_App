@@ -2,12 +2,52 @@ var APIKEY = "43678b9f208401e795aa9d998e91749e";
 var GETROOT = 'https://api.openweathermap.org/data/2.5/weather';
 
 var getWeatherFromAPICall = function(query,callback){
-    var GET = GETROOT + '?q='+ query + "&appid=" + APIKEY;
-
+    var GET = GETROOT + '?'+ query + "&appid=" + APIKEY;
+    console.log('Getting Weather with query: ' + query);
     $.getJSON(GET, callback);
 }
 
 var getWeather = function(callback){
-    console.log('Getting Weather at ' + $('#location').val());
-    getWeatherFromAPICall($('#location').val(),callback);
+    
+
+    var input = $('#location').val();
+    console.log(isZipCode(input));
+
+    if(isZipCode(input)){
+        getWeatherFromAPICall("q=" + input + ",us",callback);
+        return;
+    }
+
+    if(isLatLong(input)){
+        input = input.replace(" ","");//clean coords
+        var s = input.split(",");
+
+        var lat = s[0];
+        var long = s[1];
+
+        getWeatherFromAPICall("lat=" +lat +"&lon=" + long,callback);
+        return;
+    }
+
+    getWeatherFromAPICall("q=" + input,callback);
 }
+
+var isZipCode = function(input){
+    return ((input.length == 5) && !isNaN(input));
+}
+
+var isLatLong = function(input){
+    input = input.replace(" ","");//clean coords
+
+    var a = input.split(",");
+    if(a.length == 2){
+        if(!isNaN(a[0])){
+            if(!isNaN(a[1])){
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+

@@ -29,7 +29,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:; default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -46,18 +46,18 @@
             </header>
             <section id="fetch">
                 <div class = "ui-widget">
-                    <p>Please begin typing</p>
-                    <label for = "location">Location: </label>
-                    <input id = "location">
-
+                    <input id = "location" placeholder="Please enter City, State, Zip code or Lat/Long">
+                    <img id="gps" src="img/gps_target.png">
+                    <br>
+                    <br>
                     <button id="search">Find me the weather</button>
-                 </div>
-               
-               
+                 </div>               
             </section>
             <div id = "result">
                 
             </div>
+
+            
             <footer>
                <p>Created  by <a href="https://github.com/LeoTheLegion">Michael Mena</a></p>
             </footer>
@@ -67,8 +67,13 @@
 
         <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn0eUcQY8EoApxtS7gLRPGOcN-yyb00X0&libraries=&v=weekly"
+        defer
+        ></script>
         <script src="js/weather.js"></script>
         <script src="js/worldcities.js"></script>
+        <script src="js/map.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>
