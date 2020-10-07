@@ -60,14 +60,10 @@ var k_to_f = function(k){
 $(document).ready(function(){
     getWorldCities(function(json) {
         console.log(json);
-
         var options = [];
-
         json.forEach(e => {
             options.push(e.name + "," +e.subcountry);
         });
-
-
         $( "#location" ).autocomplete({
             source: options
          });

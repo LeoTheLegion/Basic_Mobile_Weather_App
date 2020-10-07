@@ -8,10 +8,7 @@ var getWeatherFromAPICall = function(query,callback){
 }
 
 var getWeather = function(callback){
-    
-
     var input = $('#location').val();
-    console.log(isZipCode(input));
 
     if(isZipCode(input)){
         getWeatherFromAPICall("q=" + input + ",us",callback);
